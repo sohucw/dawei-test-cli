@@ -10,7 +10,7 @@
         "Vue3-Vite"
     ],
     "license": "ISC",
-    "description": "dawei-cli-test",
+    "description": "daweitest-cli",
     "files": [
         "dist",
         "bin",
