@@ -15,7 +15,7 @@
 ## 📦 安装
 
 ```bash
-  pnpm i daweitest-cli -g
+  npm i daweitest-cli -g
 ```
 
 ## 🚩使用
