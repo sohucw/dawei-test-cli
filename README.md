@@ -1,7 +1,7 @@
 
 # daweitest-cli
 
-![Npm Version](https://img.shields.io/badge/%20npm-v1.0.1-red.svg)
+![Npm Version](https://img.shields.io/badge/daweitest-cli_v1.0.3-green)
 
 ## 📖简介
 
@@ -10,7 +10,6 @@
 ## 📕 模板
 
 -   ✅ 快速生成 Vue3 框架模板 | [Vue3-Typescript快速开发模板](https://gitee.com/sohucw/admin-pro)
--   ⏱ 更多模板 | (待更新)
 
 ## 📦 安装
 
@@ -32,6 +31,7 @@ daweitest update
 
 # 查看脚手架版本
 daweitest -v
+
 daweitest --version
 ```
 
