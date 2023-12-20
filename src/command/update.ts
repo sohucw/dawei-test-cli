@@ -15,7 +15,7 @@ const spinner = ora({
 // 项目创建流程
 export function update() {
     spinner.start();
-    process.exec('pnpm install dawei-cli@latest -g', (error) => {
+    process.exec('npm install dawei-cli@latest -g', (error) => {
         spinner.stop();
         if (!error) {
             log.success('更新成功 ~');

@@ -4,6 +4,12 @@ import log from './log';
 // 设置预估git clone的时间并展示进度条。
 import createLogger from 'progress-estimator';
 import chalk from 'chalk';
+const figlet = require('figlet');
+
+const goodPrinter = async () => {
+    const data = await figlet('欢迎使用 dawei-cli 脚手架');
+    console.log(chalk.rgb(40, 156, 193).visible(data));
+};
 
 // 初始化进度条
 const logger = createLogger({
@@ -31,8 +37,8 @@ export const clone = async (
         await logger(git.clone(url, projectName, options), '代码下载中: ', {
             estimate: 7000, // 预计下载时间
         });
-
         // 下面就是一些相关的提示
+        goodPrinter();
         console.log();
         console.log(chalk.blueBright(`==================================`));
         console.log(chalk.blueBright(`=== 欢迎使用 dawei-cli 脚手架 ===`));

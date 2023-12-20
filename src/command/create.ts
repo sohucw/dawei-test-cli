@@ -60,6 +60,7 @@ export const getNpmInfo = async (npmName: string) => {
 export const getNpmLatestVersion = async (npmName: string) => {
     const { data } = (await getNpmInfo(npmName)) as AxiosResponse;
     // data['dist-tags'].latest 为最新版本号
+    // log.error(data);
     return data['dist-tags'].latest;
 };
 /**
@@ -73,15 +74,15 @@ export const checkVersion = async (name: string, version: string) => {
     if (need) {
         log.info(
             `检测到 dawei 最新版:${chalk.blueBright(
-                latestVersion,
-            )} 当前版本:${chalk.blueBright(version)} ~`,
+                latestVersion
+            )} 当前版本:${chalk.blueBright(version)} ~`
         );
         log.info(
             `可使用 ${chalk.yellow(
-                'npm',
+                'npm'
             )} install dawei-cli@latest 或 ${chalk.yellow(
-                'dawei',
-            )} update 更新 ~`,
+                'dawei'
+            )} update 更新 ~`
         );
     }
     return need;
@@ -107,6 +108,8 @@ export async function create(projectName?: string) {
 
     // 如果文件已存在需要让用户判断是否覆盖原文件
     const filePath = path.resolve(process.cwd(), projectName);
+    log.error(filePath);
+
     if (fs.existsSync(filePath)) {
         const run = await isOverwrite(projectName);
         if (run) {
@@ -117,37 +120,7 @@ export async function create(projectName?: string) {
     }
 
     // 检测版本更新
-    // await checkVersion(name, version);
-
-    // todo 临时添加的
-    // const answer = await select({
-    //     message: 'Select a package manager',
-    //     choices: [
-    //       {
-    //         name: 'npm',
-    //         value: 'npm',
-    //         description: 'npm is the most popular package manager',
-    //       },
-    //       {
-    //         name: 'yarn',
-    //         value: 'yarn',
-    //         description: 'yarn is an awesome package manager',
-    //       },
-    //       new Separator(),
-    //       {
-    //         name: 'jspm',
-    //         value: 'jspm',
-    //         disabled: true,
-    //       },
-    //       {
-    //         name: 'pnpm',
-    //         value: 'pnpm',
-    //         disabled: '(pnpm is not available)',
-    //       },
-    //     ],
-    //   });
-
-    // log.info(answer);
+    await checkVersion(name, version);
 
     // 选择模板
     const templateName = await select({

@@ -28,13 +28,13 @@ program
     .argument('[name]', '项目名称')
     .action(async (dirName) => {
         // console.log(`create ${dirName}`)
-        await create(dirName)
-        if(dirName) {
-            console.log(`create ${dirName}`)
-            await create(dirName)
-        } else  {
-            console.log(`create command`)
-        }
+        await create(dirName);
+        // if(dirName) {
+        //     console.log(`create ${dirName}`)
+        //     await create(dirName)
+        // } else  {
+        //     console.log(`create command`)
+        // }
     });
 // parse 会解析 process.argv 中的内容
 // 也就是我们输入的指令
